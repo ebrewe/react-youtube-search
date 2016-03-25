@@ -9,14 +9,19 @@ class Searchbar extends React.Component {
 
    render() {
      return (
-       <div>
+       <div className="searchbar">
          <input
             value={this.state.term}
             placeholder="Search Videos"
-            onChange={(e)=>{this.setState({term:e.target.value})}}
+            onChange={(e)=>{this.onInputChange(e.target.value)}}
          />
        </div>
      );
+   }
+
+   onInputChange(term){
+     this.setState({term});
+     this.props.onSearchTermChange(term);
    }
 }
 
